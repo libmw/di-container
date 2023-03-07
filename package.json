@@ -1,0 +1,19 @@
+{
+  "name": "di-container",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "test": "node dist/index"
+  },
+  "keywords": [],
+  "author": "libmw",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
+}
