@@ -40,15 +40,16 @@ class Log {
   }
 }
 
+@Injectable()
 class Main {
-  constructor(private log:Log) {
-    this.log.output("main 初始化完成");
+  constructor(private log: Log) {
+    this.log.output('调用注入的log成功，main 初始化完成'); //不需要new Log就能得到log的实例
   }
 }
 
-const diContainer = new DiContainer();
-diContainer.addDependence([Log]);
-diContainer.instantiate(Main); //instantiate可以检测到Main的constructor依赖了Log，且Log为第一个参数。这样它就会先创建一个Log的实例，然后把这个实例传递给Main并同时创建Main的实例。
+const diContainer = new Container();
+diContainer.addDependence(Log);
+diContainer.instantiate(Main);//instantiate可以检测到Main的constructor依赖了Log，且Log为第一个参数。这样它就会先创建一个Log的实例，然后把这个实例传递给Main并同时创建Main的实例。
 ```
 
 - 没有依赖注入：Main 需要自己通过 new Log()来实例化 Log；
